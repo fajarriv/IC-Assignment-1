@@ -1,10 +1,10 @@
 
-interface DollarProps {
+interface StyleProps {
     className: string;
 }
 
 
-const CurrencyDollar = (props : DollarProps) => {
+const CurrencyDollar = (props : StyleProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
