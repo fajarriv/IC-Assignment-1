@@ -9,6 +9,7 @@ interface SingleCategoryProps {
 }
 
 const SingleCategory = ({ name, id }: SingleCategoryProps): JSX.Element => {
+  
   const imageMapper = useContext(ImageContext);
   const location = useLocation();
   const [search, setSearch] = useSearchParams(location.search);
