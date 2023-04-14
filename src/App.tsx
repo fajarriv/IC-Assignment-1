@@ -1,3 +1,4 @@
+import Detail from "./pages/Detail";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -7,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/details/:id" />
+          <Route path="/detail/:id" element={<Detail/>}/>
         </Routes>
       </BrowserRouter>
     </div>

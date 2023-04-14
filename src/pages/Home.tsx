@@ -62,7 +62,10 @@ const Home = () => {
     console.log(expenseData);
   };
 
-  const changePageHandler = (event: React.ChangeEvent<unknown>, page: number) => {
+  const changePageHandler = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     search.set("page", page.toString());
     setSearch(search, { replace: true });
   };
@@ -72,27 +75,32 @@ const Home = () => {
   }, [location.search]);
 
   return (
-    <div className="flex flex-col">
-      <CurrentExpenses></CurrentExpenses>
-      <FilterSection></FilterSection>
-      {expenseData ? (
-        <div>
-          {expenseData.map((data) => (
-            <div key={data.id}>
-              <SingleExpense
-                id={data.id}
-                name={data.name}
-                amount={data.amount}
-                category={data.category}
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>loading...</div>
-      )}
+    <div className="grid grid-cols-1 lg:grid-cols-3 lg:m-20">
+      <div className="lg:col-start-3">
+        <CurrentExpenses></CurrentExpenses>
+        <FilterSection></FilterSection>
+      </div>
 
-      <div className=" flex justify-center my-3">
+      <div className="lg:col-start-1 lg:col-span-2 lg:row-start-1">
+        {expenseData ? (
+          <>
+            {expenseData.map((data) => (
+              <div key={data.id}>
+                <SingleExpense
+                  id={data.id}
+                  name={data.name}
+                  amount={data.amount}
+                  category={data.category}
+                />
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>loading...</div>
+        )}
+      </div>
+
+      <div className="flex justify-center my-3 lg:col-span-3">
         <Pagination
           count={pagingInfo?.pageCount}
           shape="rounded"
